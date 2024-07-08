@@ -1,0 +1,54 @@
+body{
+    background-color: #daffe0;
+}
+
+.container{
+    background-color: white;
+    border-radius: 1em;
+    width: 40vw;
+}
+
+.formTitle{
+    background-color: rgb(145, 228, 188);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    height: 4em;
+}
+
+.documents{
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+
+    gap: 2em;
+    padding: 2em;
+}
+
+.uploadSection{
+    display: flex;
+    gap: 2em;
+    color: grey;
+    padding-top: 1em;
+}
+
+.nextButton{
+    padding: 2em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ifEditable{
+    padding-left: 2em;
+    padding-top: 2em;
+}
+
+.requiredError{
+    color: rgb(233, 67, 67);
+    font-size: 0.8em;
+    padding-top: 1em;
+    padding-left: 0.5em;
+}

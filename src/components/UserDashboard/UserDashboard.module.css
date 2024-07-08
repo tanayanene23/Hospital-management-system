@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4em;
+    width: 100vw;
+    background-color: rgb(145, 228, 188);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 2em;
+}
+
+.logo{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.logout{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+}
+
+
+
+.options{
+    display: flex;
+    justify-content: right;
+    color: blue;
+    gap: 3em;
+    /* text-decoration: underline; */
+    cursor: pointer;
+}
+
+.content{
+    margin-top: 8em;
+    margin-bottom: 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+}
+
+.topPage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5em;
+}
+
+
+
+
+
+.quote{
+    margin-top: 2em;
+    width: 15em;
+    color: gray;
+}
+
+
+
+
+
+
+.dataContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.openModal{
+    cursor: pointer;
+}
+
+.datas{
+    display: flex;
+    justify-content: space-between;
+    gap: 7em;
+    padding: 1em;
+    border-bottom: 1px solid grey;
+    font-size: 1em;
+}
+
+.showDetails{
+    background-color: white;
+    padding: 2em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.dataKey{
+    color: grey;
+}
+
+.dataHeading{
+    text-align: left;
+    padding-bottom: 1em;
+    padding-left: 0.7em;
+}
+
+
+
+
+
+.tables{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+.heading{
+    text-align: center;
+    margin-top: 4em;
+}
+
+.dataTables{
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+
+

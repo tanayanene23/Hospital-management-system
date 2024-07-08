@@ -1,0 +1,79 @@
+.gridContents{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 3em;
+    grid-column-gap: 3em;
+    grid-template-columns: 25em 25em;
+    padding: 1em 2em;
+}
+
+.container{
+    background-color: white;
+    border-radius: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.formTitle{
+    background-color: rgb(145, 228, 188);
+    height: 5em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+}
+
+body{
+    background-color: #daffe0;
+}
+
+
+.inputField{
+    width: 25em;
+}
+
+.formFields{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.radioInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.nextButton{
+    padding: 2em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.requiredError{
+    color: rgb(233, 67, 67);
+    font-size: 0.8em;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+}
+
+
+
+
+
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+input[type=date]:focus::-webkit-datetime-edit {
+    color: black !important;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

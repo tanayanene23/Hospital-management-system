@@ -1,0 +1,50 @@
+.information{
+    display: flex;
+}
+
+.keys{
+    width: 20em;
+    text-transform: capitalize;
+    color: grey;
+    font-weight: 500;
+}
+
+.showData{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    background-color: #daffe0;
+    border-radius: 1em;
+    padding: 2em;
+}
+
+.modalContents{
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.options{
+    display: flex;
+    gap: 2em;
+}
+
+
+
+/* .input{
+    border: none;
+} */

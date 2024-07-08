@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4em;
+    width: 100vw;
+    background-color: rgb(145, 228, 188);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 2em;
+}
+
+.logo{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.logout{
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+}
+
+
+
+
+.dataCard{
+    background-color:  white;
+    height: 8em;
+    width: 15em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 1em;
+    padding: 2em;
+    border-radius: 1em;
+    box-shadow: 0em 0em 2em 0.1em rgb(144, 236, 206);
+}
+
+
+
+
+.dataCards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+
+
+
+
+.titles{
+    color: grey;
+    text-transform: capitalize;
+}
+
+.numbers{
+    font-size: 3em;
+}
+
+
+
+
+
+
+
+
+
+
+
+table{
+    /* border: 2px solid rgb(159, 252, 236); */
+    border-collapse: collapse;
+    width: 80vw;
+    margin-top: 2em;
+    background-color: white;
+}
+
+tr:nth-child(even){
+    background-color: rgb(235, 255, 246);
+}
+
+tr:hover{
+    font-weight: 700;
+    color: rgb(6, 121, 65);
+}
+
+th{
+    border: 2px solid rgb(15, 201, 154);
+    padding: 1em;
+    background-color: rgb(145, 228, 188);
+}
+
+td{
+    border: 2px solid rgb(15, 201, 154);
+    padding: 1em;
+    text-align: center;
+}
+
+
+
+.tables{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.view{
+    color: blue;
+    text-decoration: underline;
+}
+
+.heading{
+    text-align: center;
+    margin-top: 4em;
+}
+
+
+
+
+

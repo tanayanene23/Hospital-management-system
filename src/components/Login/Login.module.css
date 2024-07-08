@@ -1,0 +1,81 @@
+.container{
+    background-color: white;
+    height: 40em;
+    width: 70vw;
+    border-radius: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 3em; */
+}
+
+body{
+    background-color: #daffe0;
+}
+
+.image{
+    height: 40em;
+    width: 35vw;
+    background-color: rgb(96, 209, 153);
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.image p{
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5em;
+    width: 30vw;
+}
+
+
+.content{
+    height: 40em;
+    width: 35vw;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2em;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.inputField{
+    width: 25vw;
+}
+
+.formFields{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#span{
+    color: blue;
+    text-decoration: underline;
+}
+
+
+.requiredError{
+    color: rgb(233, 67, 67);
+    font-size: 0.8em;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    text-align: left;
+}
