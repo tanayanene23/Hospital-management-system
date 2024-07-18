@@ -9,6 +9,12 @@ import { useEffect, useState } from "react";
 
 import AdminModal from "./AdminModal";
 
+
+import { FaSearch } from "react-icons/fa";
+
+import Pagination from './Pagination';
+
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
@@ -27,6 +33,60 @@ const AdminDashboard = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+
+  // state for searching 
+  const [query, setQuery] = useState("")
+  // console.log(query)
+
+
+  // for pagination
+  const [currentPage, setCurrentPage] = useState(1)
+  const [entriesPerPage, setEntriesPerPage] = useState(10)
+
+  const indexOfLastEntry = currentPage * entriesPerPage
+  const indexOfFirstEntry = indexOfLastEntry - entriesPerPage
+  const currentEntries = credentials ? credentials.slice(indexOfFirstEntry, indexOfLastEntry) : ""
+
+
+
+  // console.log('credentials',credentials)
+
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+    console.log("page number from paginate",pageNumber)
+  }
+
+  const prevPage = () => {
+    if(currentPage !== 1){
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+
+
+
+  // for sorting 
+  // credentials ? credentials.sort((a, b) => a.Email.localeCompare(b.Email)) : ""
+  // console.log(credentials)
+
+
+  const sort = (e) => {
+    if(e.target.value === "asc"){
+        const ascSorted = [...credentials].sort((a, b) => a.Email.localeCompare(b.Email))
+        console.log(credentials)
+        console.log("sortAscending clicked")
+        setcredentials(ascSorted)
+    }
+    if(e.target.value === "desc"){
+      const descSorted = [...credentials].sort((a, b) => b.Email.localeCompare(a.Email))
+        console.log("sortdescending clicked")
+        setcredentials(descSorted)
+    }
+  }
+
+
 
 
   const getFamilyDetails = async () => {
@@ -77,6 +137,7 @@ const AdminDashboard = () => {
     }
   };
 
+
   useEffect(() => {
     getFamilyDetails();
     getPersonalDetails();
@@ -98,9 +159,9 @@ const AdminDashboard = () => {
             console.log(personal[obj]);
             setSinglePerson(personal[obj]);
           }
-          else{
-            setSinglePerson(null)
-          }
+          // else{
+          //   setSinglePerson(null)
+          // }
              
         }
       }
@@ -119,9 +180,9 @@ const AdminDashboard = () => {
             setSingleFamily(family[obj]);
             console.log("id found")
           }
-          else{
-            setSingleFamily(null)
-          }
+          // else{
+          //   setSingleFamily(null)
+          // }
         }
       }
     }
@@ -131,14 +192,17 @@ const AdminDashboard = () => {
 
 
 
-    console.log("credentials",credentials)
-    console.log("personal",personal)
-
-
     let registeredCount = 0 
     for (const credential in credentials){
-      console.log("total registered patients", credentials[credential])
+      // console.log("total registered patients", credentials[credential])
       registeredCount += 1
+    }
+
+    // pagination nextPage funtion
+    const nextPage = () => {
+      if(currentPage !== Math.ceil(registeredCount / entriesPerPage)){
+        setCurrentPage(currentPage + 1)
+      }
     }
 
     let diabetesCount = 0
@@ -190,9 +254,15 @@ const AdminDashboard = () => {
 
 
 
-  const objects = credentials
-    ? Object.keys(credentials).map((key) => {
-        const rows = credentials[key];
+  const objects = currentEntries
+    ? Object.keys(currentEntries)
+    .filter((item) => {
+      const itemObj = currentEntries[item]
+      return query.toLocaleLowerCase() === "" ? item : itemObj.Email.toLocaleLowerCase().includes(query)
+    })
+    .map((key) => {
+      // console.log("key from .map", credentials[key])
+        const rows = currentEntries[key];
         const rowData = Object.keys(rows).map((key) => {
           return <td key={key}>{rows[key]}</td>;
         });
@@ -204,7 +274,6 @@ const AdminDashboard = () => {
               className={styles.view} 
             >
 
-
             <img className={styles.openModal} onClick={() => {
                 viewData(rows);
             }} src={view} alt="view" />
@@ -215,6 +284,7 @@ const AdminDashboard = () => {
         );
       })
     : "";
+
 
   return (
     <div className={styles.container}>
@@ -239,29 +309,53 @@ const AdminDashboard = () => {
         <p>You can view the details of all the registered users here.</p>
       </div>
 
-
-
-      
-
-
         <div className={styles.dataCards}>
             {kpiCards}
         </div>
 
-        <h3>Patient details:</h3>
+        <div className={styles.search}>
+            <h3>Patient details:</h3>
+            <div className={styles.searchBar}>
+                <input 
+                className={styles.searchInput}
+                type="text"
+                placeholder='Search'
+                value={query}
+                onChange={(e) => {setQuery(e.target.value)}}
+                />
+                <FaSearch className={styles.searchIcon}/>
+            </div>
+        </div>
 
 
       <table>
         <thead>
           <tr>
             <th>Id</th>
-            <th>Email</th>
+            <th>
+              <div className={styles.sorting}>
+                Email
+                <select className={styles.selectSort} onChange={sort}>
+                  <option value="" selected disabled hidden>Sort by</option>
+                  <option value="asc">Ascending</option>
+                  <option value="desc">Descending</option>
+                </select>
+              </div>
+            </th>
             <th>role</th>
             <th>View details</th>
           </tr>
         </thead>
         <tbody>{objects}</tbody>
       </table>
+
+      <Pagination
+      entriesPerPage={entriesPerPage}
+      totalEntries={registeredCount}
+      paginate={paginate}
+      prevPage={prevPage}
+      nextPage={nextPage}
+      />
 
       <AdminModal
         open={open}
@@ -271,6 +365,7 @@ const AdminDashboard = () => {
         setSinglePerson={setSinglePerson}
         setSingleFamily={setSingleFamily}
       />
+
     </div>
   );
 };

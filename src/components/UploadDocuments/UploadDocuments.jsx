@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import {Button} from '@mui/material';
 
 import styles from './UploadDocuments.module.css'
 import { useState, useEffect, useCallback } from 'react';
@@ -10,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
 import {sendDocuments} from './UploadDocumentsSlice.jsx'
 import { putDocuments } from './UploadDocumentsSlice.jsx';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 
 
 const VisuallyHiddenInput = styled('input')({

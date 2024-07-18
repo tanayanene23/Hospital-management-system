@@ -79,6 +79,34 @@
 }
 
 
+.searchBar{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 0em 1em;
+    border: 1px solid grey;
+    border-radius: 2em;
+    gap: 1em
+}
+
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchInput{
+    border: none;
+    height: 3em;
+    outline: none;
+}
+
+
+/* .searchIcon{
+    background-color: white;
+} */
+
+
 
 
 
@@ -136,6 +164,14 @@ td{
 }
 
 
+.sorting{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 17em;
+}
 
-
-
+.selectSort{
+    padding: 0.5em 1em;
+    border-radius: 2em;
+}

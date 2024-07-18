@@ -1,7 +1,8 @@
-import Box from '@mui/material/Box/Box';
 import { Button } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import {Typography} from '@mui/material';
+import {Modal} from '@mui/material';
+import { Box } from '@mui/material';
+
 
 const style = {
   position: 'absolute',

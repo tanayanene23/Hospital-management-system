@@ -17,6 +17,15 @@ import { useDispatch } from "react-redux";
 
 import {sendLogin} from './LoginSlice.jsx'
 
+
+// import { FaEye } from "react-icons/fa";
+// import { FaEyeSlash } from "react-icons/fa";
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye'
+import Icon from "react-icons-kit";
+
+
+
 function Login() {
 
   const dispatch = useDispatch();
@@ -36,6 +45,9 @@ function Login() {
   const [formErrors, setFormErrors] = useState({})
 
 
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(eyeOff);
+
 
 
   const formFields = [
@@ -52,7 +64,7 @@ function Login() {
       id: 1,
       label: "Password",
       placeholder: "Enter your password...",
-      type: "password",
+      type: type,
       errorMsg: "",
       valid: false
     },
@@ -87,7 +99,6 @@ function Login() {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-    // console.log(input)
   }
   console.log(login);
 
@@ -167,24 +178,44 @@ function Login() {
 
 
 
+
+  const handleToggle = () => {
+    if(type === 'password'){
+      setIcon(eye)
+      setType('text')
+    }
+    else{
+      setIcon(eyeOff)
+      setType('password')
+    }
+  }
+
+
+
+
+
   const formContent = formFields.map((field) => {
     return (
       <div className={styles.formFields} key={field.id}>
       
           <div>
-            <TextField
-              id="outlined-error-helper-text"
-              name={field.label}
-              label={field.label}
-      
-              className={styles.inputField}
-              type={field.type}
-              value={TextField[field.label]}
-              onChange={(e) => {
-                saveInput(e);
-              }}
-            />
-
+              <div className={styles.iconStyling}>
+                    <TextField 
+                    id="outlined-error-helper-text"
+                    name={field.label}
+                    label={field.label}
+                    className={styles.inputField}
+                    type={field.type}
+                    value={TextField[field.label]}
+                    onChange={(e) => {
+                      saveInput(e);
+                    }}
+                  />
+                  <div  className={styles.eyeIcon}>
+                      {field.label === "Password" && <span  onClick={handleToggle}><Icon icon={icon}/></span>}
+                  </div>
+              </div>
+            
             <p className={styles.requiredError}>{formErrors[field.label]}</p>
           </div>
       </div>

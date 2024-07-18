@@ -1,0 +1,23 @@
+.paginationContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    padding-top: 1em;
+}
+
+.prevNext{
+    background-color: white;
+    border: none;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid grey;
+}
+
+.pageNumber{
+    background-color: white;
+    border: none;
+    border-radius: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid grey;
+}

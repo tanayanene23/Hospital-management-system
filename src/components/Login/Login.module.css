@@ -58,7 +58,20 @@ body{
 
 .inputField{
     width: 25vw;
+    position: relative;
 }
+
+.iconStyling{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.eyeIcon{
+    position: absolute;
+    margin-left: 22em;
+}
+
 
 .formFields{
     display: flex;

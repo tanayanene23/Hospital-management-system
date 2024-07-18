@@ -1,7 +1,7 @@
 import styles from "../Login/Login.module.css" 
 import image1 from "../../assets/images/doctor2.jpg"
 
-import TextField from '@mui/material/TextField';
+import {TextField} from '@mui/material';
 
 import {Button} from "@mui/material";
 
@@ -14,6 +14,11 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 
 import { addUser } from "./SignupDataSlice";
+
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye'
+import Icon from "react-icons-kit";
+
 
 function Signup() {
 
@@ -32,6 +37,9 @@ function Signup() {
     const [formErrors, setFormErrors] = useState({})
 
 
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
+
     
     let formFields = [
         {
@@ -47,7 +55,7 @@ function Signup() {
             id: 1,
             label: "Password",
             placeholder: "Enter your password...",
-            type: "password",
+            type: type,
             errorMsg: "",
             valid: false
         },
@@ -55,7 +63,7 @@ function Signup() {
             id: 2,
             label: "ConfirmPassword",
             placeholder: "Confirm your password...",
-            type: "password",
+            type: type,
             errorMsg: "Enter matching passwords",
             valid: false
         }
@@ -136,6 +144,19 @@ function Signup() {
             return errors;
       }
       
+
+
+      const handleToggle = () => {
+        if(type === 'password'){
+          setIcon(eye)
+          setType('text')
+        }
+        else{
+          setIcon(eyeOff)
+          setType('password')
+        }
+      }
+    
       
 
 
@@ -145,6 +166,8 @@ function Signup() {
 
         
                     <div>
+                        <div className={styles.iconStyling}>
+
                         <TextField
                         name={field.label}
                         label={field.label}
@@ -154,6 +177,12 @@ function Signup() {
                         value={TextField[field.label]}
                         onChange={(e) => {saveInput(e)}}
                         />
+
+                        <div  className={styles.eyeIcon}>
+                        {(field.label === "Password" || field.label === "ConfirmPassword")&& <span  onClick={handleToggle}><Icon icon={icon}/></span>}
+                        </div>
+
+                        </div>
 
                         <p className={styles.requiredError}>{formErrors[field.label]}</p>
                     </div>
